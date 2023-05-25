@@ -1,0 +1,20 @@
+.small-article {
+	border-left: 9px solid var(--clr-primary);
+	padding-inline-start: 8px;
+	margin-block-end: 35px;
+}
+
+.small-article:last-child {
+	margin-block-end: 0;
+}
+
+.small-article__title {
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 24px;
+	/*ограничение в три строки для заголовка*/
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}

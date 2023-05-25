@@ -1,0 +1,35 @@
+.articles {
+	margin-block-end: 80px;
+}
+.article-category {
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 17px;
+	color: var(--clr-accent);
+	text-transform: uppercase;
+}
+.article-source {
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 24px;
+	color: var(--clr-gray);
+	text-transform: uppercase;
+}
+.article-date {
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 24px;
+	color: var(--clr-accent);
+	text-transform: uppercase;
+}
+
+.articles__big {
+	grid-column: span 9;
+}
+.articles__small {
+	grid-column: 10/-1;
+}
+
+.article-date + .article-source::before {
+	content: ' · ';
+}
