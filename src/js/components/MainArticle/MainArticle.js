@@ -1,3 +1,5 @@
+import React from 'react';
+import './main-article.css';
 const MainArticle = ({title, image, description, category, source}) => {
 	return (
 		<article className="main-article" key={title}>

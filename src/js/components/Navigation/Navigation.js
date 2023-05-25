@@ -1,11 +1,13 @@
-import {categoryNames} from '../utils.js';
+import React from 'react';
+import {categoryNames} from '../../utils.js';
+import logo from '../../../assets/images/logo.svg';
 
 const Navigation = ({onNavClick, currentCategory, className}) => {
 	return (
 		<>
 			<nav className={`nav grid ${className}`}>
 				<a href="#" className="nav__logo" data-href="index">
-					<img src="src/assets/images/logo.svg" alt="ks-news logo" className="nav__img" />
+					<img src={logo} alt="ks-news logo" className="nav__img" />
 				</a>
 				<ul className="nav__list" role="list">
 					{['index', 'fashion', 'tech', 'politic', 'sport'].map((item) => {

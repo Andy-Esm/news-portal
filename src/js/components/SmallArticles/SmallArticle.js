@@ -1,3 +1,5 @@
+import React from 'react';
+import './small-article.css';
 const SmallArticle = ({title, source, date}) => {
 	return (
 		<article className="small-article" key={title}>

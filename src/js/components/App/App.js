@@ -1,6 +1,8 @@
-import {categoryIds} from '../utils.js';
-import Articles from '../components/Articles.js';
-import Navigation from '../components/Navigation.js';
+import React from 'react';
+import {categoryIds} from '../../utils.js';
+import Articles from '../Articles/Articles.js';
+import Navigation from '../Navigation/Navigation.js';
+import './app.css';
 
 const App = () => {
 	const [category, setCategory] = React.useState('index');

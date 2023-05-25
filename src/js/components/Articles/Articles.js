@@ -1,6 +1,7 @@
-import MainArticle from '../components/MainArticle.js';
-import SmallArticle from '../components/SmallArticle.js';
-
+import React from 'react';
+import MainArticle from '../MainArticle/MainArticle.js';
+import SmallArticle from '../SmallArticles/SmallArticle.js';
+import './article.css';
 const Articles = ({articles}) => {
 	return (
 		<section className="articles">
