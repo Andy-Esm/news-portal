@@ -2,7 +2,7 @@ import React from 'react';
 import {categoryIds} from '../../utils';
 import Navigation from '../Navigation/Navigation';
 import Articles from '../Articles/Articles';
-import './App.css';
+import './app.css';
 import ArticleItem from '../ArticleItem/ArticleItem';
 import {NewsAPI} from '../../../types';
 
