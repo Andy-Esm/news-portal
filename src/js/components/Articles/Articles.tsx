@@ -1,11 +1,11 @@
 import React, {FC} from 'react';
 import MainArticle from '../MainArticle/MainArticle';
 import SmallArticle from '../SmallArticles/SmallArticle';
-import './article.css';
-import {NewsApi} from '../../../types';
+import './Articles.css';
+import {NewsAPI} from '../../../types';
 
 interface Props {
-	articles: NewsApi;
+	articles: NewsAPI;
 	onArticleClick: (id: number) => void;
 }
 
@@ -13,36 +13,38 @@ const Articles: FC<Props> = ({articles, onArticleClick}) => {
 	return (
 		<section className="articles">
 			<div className="container grid">
-				<section className="articles__big">
+				<section className="articles__big-column">
 					{articles.items.slice(0, 3).map((item) => {
 						const category = articles.categories.find(({id}) => item.category_id === id);
 						const source = articles.sources.find(({id}) => item.source_id === id);
+
 						return (
 							<MainArticle
-								category={category?.name || ''}
-								source={source?.name || ''}
+								key={item.title}
 								title={item.title}
 								description={item.description}
 								image={item.image}
-								key={item.title}
-								onClick={() => onArticleClick(item.id)}
+								category={category ? category.name : ''}
+								source={source?.name || ''}
+								onArticleClick={() => onArticleClick(item.id)}
 							/>
 						);
 					})}
 				</section>
-				<aside className="articles__small">
+				<section className="articles__small-column">
 					{articles.items.slice(3, 12).map((item) => {
 						const source = articles.sources.find(({id}) => item.source_id === id);
 						return (
 							<SmallArticle
+								key={item.title}
 								title={item.title}
 								source={source?.name || ''}
 								date={item.date}
-								key={item.title}
+								onArticleClick={() => onArticleClick(item.id)}
 							/>
 						);
 					})}
-				</aside>
+				</section>
 			</div>
 		</section>
 	);
