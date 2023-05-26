@@ -1,14 +1,22 @@
+export const categoryIds = {
+	index: 0,
+	sport: 2,
+	technologies: 1,
+	karpov: 6,
+	fashion: 3,
+};
+
 export const categoryNames = {
 	index: 'Главная',
 	fashion: 'Мода',
-	tech: 'Технологии',
-	politic: 'Политика',
+	technologies: 'Технологии',
 	sport: 'Спорт',
+	// karpov: 'Karpov',
 };
-export const categoryIds = {
-	index: 0,
-	tech: 1,
-	sport: 2,
-	fashion: 3,
-	politic: 6,
+
+export const beautifyDate = (date: string): string => {
+	return new Date(date).toLocaleDateString('ru-RU', {
+		month: 'long',
+		day: 'numeric',
+	});
 };

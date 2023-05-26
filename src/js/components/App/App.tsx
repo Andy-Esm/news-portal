@@ -1,22 +1,23 @@
 import React from 'react';
 import {categoryIds} from '../../utils';
-import Articles from '../Articles/Articles';
 import Navigation from '../Navigation/Navigation';
-import './app.css';
-import {NewsApi} from '../../../types';
+import Articles from '../Articles/Articles';
+import './App.css';
+import ArticleItem from '../ArticleItem/ArticleItem';
+import {NewsAPI} from '../../../types';
 
 const App = () => {
-	const [category, setCategory] = React.useState('index');
-	const [articles, setArticles] = React.useState<NewsApi>({
-		items: [],
-		categories: [],
-		sources: [],
-	});
 	const [articleId, setArticleId] = React.useState<number | null>(null);
+	const [category, setCategory] = React.useState('index');
+	const [articles, setArticles] = React.useState<NewsAPI>({items: [], categories: [], sources: []});
 
 	const onNavClick = (e: React.MouseEvent<HTMLElement>) => {
 		e.preventDefault();
+
+		setArticleId(null);
+
 		const category = e.currentTarget.dataset.href;
+
 		if (category) {
 			setCategory(category);
 		}
@@ -29,40 +30,53 @@ const App = () => {
 	React.useEffect(() => {
 		// @ts-ignore
 		fetch('https://frontend.karpovcourses.net/api/v2/ru/news/' + categoryIds[category] || '')
-			.then((res) => res.json())
-			.then((res: NewsApi) => {
-				setArticles(res);
+			.then((response) => response.json())
+			.then((response: NewsAPI) => {
+				setArticles(response);
 			});
 	}, [category]);
 
 	return (
-		<>
+		<React.Fragment>
 			<header className="header">
 				<div className="container">
 					<Navigation
+						placement="header"
+						className="header__navigation"
 						onNavClick={onNavClick}
 						currentCategory={category}
-						className={'header__nav'}
 					/>
 				</div>
 			</header>
-			<main className="main">
-				<Articles articles={articles} onArticleClick={onArticleClick} />
+
+			<main>
+				{articleId !== null ? (
+					<ArticleItem
+						id={articleId}
+						categories={articles.categories}
+						sources={articles.sources}
+						onArticleClick={onArticleClick}
+					/>
+				) : (
+					<Articles articles={articles} onArticleClick={onArticleClick} />
+				)}
 			</main>
+
 			<footer className="footer">
 				<div className="container">
 					<Navigation
+						placement="footer"
 						onNavClick={onNavClick}
 						currentCategory={category}
-						className={'footer__nav'}
+						className="footer__navigation"
 					/>
-					<div className="footer__column">
-						<p className="footer__text">Сделано на курсах по фронтенд разработке</p>
-						<span className="footer__copyright">&copy; 2023</span>
+					<div className="footer__bottom">
+						<p className="footer__text">Сделано на Frontend курсе</p>
+						<p className="footer__text footer__text--gray">© 2021</p>
 					</div>
 				</div>
 			</footer>
-		</>
+		</React.Fragment>
 	);
 };
 
