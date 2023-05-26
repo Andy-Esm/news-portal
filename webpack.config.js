@@ -1,8 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-	mode: process.env.NODE_ENV || 'production',
-	entry: './src/js/index.js',
+	mode: 'development',
+	entry: './src/js/index.tsx',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'bundle.[contenthash].js',
@@ -15,6 +15,11 @@ module.exports = {
 				exclude: /node_modules/,
 			},
 			{
+				test: /\.(ts|tsx)$/,
+				use: 'ts-loader',
+				exclude: /node_modules/,
+			},
+			{
 				test: /\.css$/,
 				use: ['style-loader', 'css-loader'],
 			},
@@ -23,6 +28,9 @@ module.exports = {
 				type: 'asset/resource',
 			},
 		],
+	},
+	resolve: {
+		extensions: ['.tsx', '.ts', '.js'],
 	},
 	plugins: [
 		new HtmlWebpackPlugin({

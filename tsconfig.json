@@ -1,0 +1,13 @@
+{
+	"include": ["src"],
+	"exclude": ["node_modules", "dist"],
+	"compilerOptions": {
+		"outDir": "./dist/",
+		"noImplicitAny": true,
+		"esModuleInterop": true,
+		"jsx": "react",
+		"allowJs": true,
+		"strict": true,
+		"moduleResolution": "node"
+	}
+}

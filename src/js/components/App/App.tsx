@@ -1,26 +1,36 @@
 import React from 'react';
-import {categoryIds} from '../../utils.js';
-import Articles from '../Articles/Articles.js';
-import Navigation from '../Navigation/Navigation.js';
+import {categoryIds} from '../../utils';
+import Articles from '../Articles/Articles';
+import Navigation from '../Navigation/Navigation';
 import './app.css';
+import {NewsApi} from '../../../types';
 
 const App = () => {
 	const [category, setCategory] = React.useState('index');
-	const [articles, setArticles] = React.useState({
+	const [articles, setArticles] = React.useState<NewsApi>({
 		items: [],
 		categories: [],
 		sources: [],
 	});
+	const [articleId, setArticleId] = React.useState<number | null>(null);
 
-	const onNavClick = (e) => {
+	const onNavClick = (e: React.MouseEvent<HTMLElement>) => {
 		e.preventDefault();
-		setCategory(e.currentTarget.dataset.href);
+		const category = e.currentTarget.dataset.href;
+		if (category) {
+			setCategory(category);
+		}
+	};
+
+	const onArticleClick = (id: number) => {
+		setArticleId(id);
 	};
 
 	React.useEffect(() => {
+		// @ts-ignore
 		fetch('https://frontend.karpovcourses.net/api/v2/ru/news/' + categoryIds[category] || '')
 			.then((res) => res.json())
-			.then((res) => {
+			.then((res: NewsApi) => {
 				setArticles(res);
 			});
 	}, [category]);
@@ -37,7 +47,7 @@ const App = () => {
 				</div>
 			</header>
 			<main className="main">
-				<Articles articles={articles} />
+				<Articles articles={articles} onArticleClick={onArticleClick} />
 			</main>
 			<footer className="footer">
 				<div className="container">
@@ -47,7 +57,7 @@ const App = () => {
 						className={'footer__nav'}
 					/>
 					<div className="footer__column">
-						<p className="footer__text">Сделанно на курсах по фронтенд разработке</p>
+						<p className="footer__text">Сделано на курсах по фронтенд разработке</p>
 						<span className="footer__copyright">&copy; 2023</span>
 					</div>
 				</div>
