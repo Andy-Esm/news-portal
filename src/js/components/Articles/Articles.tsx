@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import MainArticle from '../MainArticle/MainArticle';
 import SmallArticle from '../SmallArticles/SmallArticle';
-import './Articles.css';
+import './articles.css';
 import {NewsAPI} from '../../../types';
 
 interface Props {
