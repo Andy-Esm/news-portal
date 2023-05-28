@@ -18,22 +18,21 @@ const Navigation: FC<Props> = ({
 }) => {
 	return (
 		<nav className={`grid navigation navigation--${placement} ${className}`}>
-			<a className="navigation__logo" data-href="index" href="#">
-				<img className="navigation__logo-image" src={logo} alt="Логотип" />
+			<a className='navigation__logo' data-href='index' href='#'>
+				<img className='navigation__logo-image' src={logo} alt='Логотип' />
 			</a>
-			<ul className="navigation__list">
-				{['index', 'fashion', 'technologies', 'sport', 'karpov'].map((item) => {
+			<ul className='navigation__list'>
+				{['index', 'fashion', 'technologies', 'sport'].map((item) => {
 					return (
-						<li className="navigation__item" key={item}>
+						<li className='navigation__item' key={item}>
 							<a
 								onClick={onNavClick}
 								className={`navigation__link ${
 									currentCategory === item ? 'navigation__link--active' : ''
 								}`}
 								data-href={item}
-								href="#"
+								href='#'
 							>
-								{/* @ts-ignore */}
 								{categoryNames[item]}
 							</a>
 						</li>

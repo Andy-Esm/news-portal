@@ -28,7 +28,6 @@ const App = () => {
 	};
 
 	React.useEffect(() => {
-		// @ts-ignore
 		fetch('https://frontend.karpovcourses.net/api/v2/ru/news/' + categoryIds[category] || '')
 			.then((response) => response.json())
 			.then((response: NewsAPI) => {
@@ -38,11 +37,11 @@ const App = () => {
 
 	return (
 		<React.Fragment>
-			<header className="header">
-				<div className="container">
+			<header className='header'>
+				<div className='container'>
 					<Navigation
-						placement="header"
-						className="header__navigation"
+						placement='header'
+						className='header__navigation'
 						onNavClick={onNavClick}
 						currentCategory={category}
 					/>
@@ -62,17 +61,17 @@ const App = () => {
 				)}
 			</main>
 
-			<footer className="footer">
-				<div className="container">
+			<footer className='footer'>
+				<div className='container'>
 					<Navigation
-						placement="footer"
+						placement='footer'
 						onNavClick={onNavClick}
 						currentCategory={category}
-						className="footer__navigation"
+						className='footer__navigation'
 					/>
-					<div className="footer__bottom">
-						<p className="footer__text">Сделано на Frontend курсе</p>
-						<p className="footer__text footer__text--gray">© 2021</p>
+					<div className='footer__bottom'>
+						<p className='footer__text'>Сделано на Frontend курсе</p>
+						<p className='footer__text footer__text--gray'>© 2023</p>
 					</div>
 				</div>
 			</footer>
