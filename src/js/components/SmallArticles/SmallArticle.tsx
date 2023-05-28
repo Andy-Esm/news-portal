@@ -11,10 +11,10 @@ interface Props {
 
 const SmallArticle: FC<Props> = ({title, source, date, onArticleClick}) => {
 	return (
-		<article className="small-article" onClick={onArticleClick}>
-			<h2 className="small-article__title">{title}</h2>
-			<span className="article-date">{source}</span>
-			<span className="article-source">{beautifyDate(date)}</span>
+		<article className='small-article' onClick={onArticleClick}>
+			<h2 className='small-article__title'>{title}</h2>
+			<span className='article-date'>{source}</span>
+			<span className='article-source'>{beautifyDate(date)}</span>
 		</article>
 	);
 };
