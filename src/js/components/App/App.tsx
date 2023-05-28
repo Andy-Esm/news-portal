@@ -6,6 +6,8 @@ import './app.css';
 import ArticleItem from '../ArticleItem/ArticleItem';
 import {NewsAPI} from '../../../types';
 
+ 
+
 const App = () => {
 	const [articleId, setArticleId] = React.useState<number | null>(null);
 	const [category, setCategory] = React.useState('index');

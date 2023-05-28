@@ -50,12 +50,12 @@
 	grid-column: 5/-1;
 }
 
-.article__hero + .article__main {
-	padding-top: 101px;
+.article__main {
+	grid-template-areas: "c c c c c c c . r r r r";
 }
 
-.article__main {
-	grid-template-areas: 'c c c c c c c . r r r r';
+.article__hero + .article__main {
+	padding-top: 101px;
 }
 
 .article__title {
