@@ -6,8 +6,6 @@ import './app.css';
 import ArticleItem from '../ArticleItem/ArticleItem';
 import {NewsAPI} from '../../../types';
 
- 
-
 const App = () => {
 	const [articleId, setArticleId] = React.useState<number | null>(null);
 	const [category, setCategory] = React.useState('index');
@@ -72,7 +70,7 @@ const App = () => {
 						className='footer__navigation'
 					/>
 					<div className='footer__bottom'>
-						<p className='footer__text'>Сделано на Frontend курсе</p>
+						<p className='footer__text'>Сделано в качестве учебного проекта</p>
 						<p className='footer__text footer__text--gray'>© 2023</p>
 					</div>
 				</div>

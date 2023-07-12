@@ -1,10 +1,10 @@
-import React, {FC} from 'react';
+import {FC, MouseEvent} from 'react';
 import {categoryNames} from '../../utils';
 import './navigation.css';
 import logo from '../../../assets/images/logo.svg';
 
 interface Props {
-	onNavClick: (event: React.MouseEvent<HTMLElement>) => void;
+	onNavClick: (event: MouseEvent<HTMLElement>) => void;
 	currentCategory: string;
 	className?: string;
 	placement: 'header' | 'footer';

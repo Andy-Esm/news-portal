@@ -38,14 +38,15 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './src/index.html',
 		}),
-		new	EslintWebpackPlugin({
-			files: '{**/*,*}.{tsx,ts,js}'
+		new EslintWebpackPlugin({
+			files: '{**/*,*}.{tsx,ts,js}',
 		}),
 		new StylelintWebpackPlugin({
-			files: '{**/*,*}.{css,scss}'
+			files: '{**/*,*}.{css,scss}',
 		}),
 	],
 	devServer: {
 		open: true,
+		hot: true,
 	},
 };
