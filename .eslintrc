@@ -2,14 +2,13 @@
 	"root": true,
 	"extends": ["eslint:recommended", "prettier"],
 	"parserOptions": {
-		"ecmaVersion": 2022,
+		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
 	"env": {
 		"node": true
 	},
 	"rules": {
-		"no-console": "warn",
-		 
+		"no-console": "warn"
 	}
 }

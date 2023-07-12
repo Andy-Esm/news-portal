@@ -1,0 +1,6 @@
+{
+	"extends": ["stylelint-config-recommended", "prettier"],
+	"rules": {
+		"selector-class-pattern": null
+	}
+}

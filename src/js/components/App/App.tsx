@@ -70,7 +70,7 @@ const App = () => {
 						className='footer__navigation'
 					/>
 					<div className='footer__bottom'>
-						<p className='footer__text'>Сделано на Frontend курсе</p>
+						<p className='footer__text'>Сделано в качестве учебного проекта</p>
 						<p className='footer__text footer__text--gray'>© 2023</p>
 					</div>
 				</div>
