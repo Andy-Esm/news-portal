@@ -1,15 +1,24 @@
-import React, {FC} from 'react';
+import {useEffect, FC, useState} from 'react';
 import MainArticle from '../MainArticle/MainArticle';
 import SmallArticle from '../SmallArticles/SmallArticle';
 import './articles.css';
 import {NewsAPI} from '../../../types';
+import {categoryIds} from '../../utils';
+import {useParams} from 'react-router-dom';
 
-interface Props {
-	articles: NewsAPI;
-	onArticleClick: (id: number) => void;
-}
+const Articles: FC = () => {
+	const [articles, setArticles] = useState<NewsAPI>({items: [], categories: [], sources: []});
+	
+	const {categoryId = 'index'}: {categoryId?: string} = useParams();
 
-const Articles: FC<Props> = ({articles, onArticleClick}) => {
+	useEffect(() => {
+		fetch('https://frontend.karpovcourses.net/api/v2/ru/news/' + categoryIds[categoryId] || '')
+			.then((response) => response.json())
+			.then((response: NewsAPI) => {
+				setArticles(response);
+			});
+	}, [categoryId]);
+
 	return (
 		<section className='articles'>
 			<div className='container grid'>
@@ -20,13 +29,13 @@ const Articles: FC<Props> = ({articles, onArticleClick}) => {
 
 						return (
 							<MainArticle
-								key={item.title}
+								key={item.id}
+								id={item.id}
 								title={item.title}
 								description={item.description}
 								image={item.image}
 								category={category ? category.name : ''}
 								source={source?.name || ''}
-								onArticleClick={() => onArticleClick(item.id)}
 							/>
 						);
 					})}
@@ -36,11 +45,11 @@ const Articles: FC<Props> = ({articles, onArticleClick}) => {
 						const source = articles.sources.find(({id}) => item.source_id === id);
 						return (
 							<SmallArticle
-								key={item.title}
+								key={item.id}
+								id={item.id}
 								title={item.title}
 								source={source?.name || ''}
 								date={item.date}
-								onArticleClick={() => onArticleClick(item.id)}
 							/>
 						);
 					})}
