@@ -1,13 +1,17 @@
 .main-article {
+	display: block;
 	margin-bottom: 95px;
-	display: grid;
-	grid-template-columns: repeat(9, var(--grid-column-width));
-	gap: var(--grid-gap);
 	cursor: pointer;
 }
 
 .main-article:last-child {
 	margin-bottom: 0;
+}
+
+.main-article__container {
+	display: grid;
+	grid-template-columns: repeat(9, var(--grid-column-width));
+	gap: var(--grid-gap);
 }
 
 .main-article__image-container {

@@ -29,7 +29,16 @@
 	color: var(--link-color);
 }
 
-.navigation__link--active,
+
+.navigation__link--active{
+	font-size: 24px;
+	font-weight: 900;
+	text-transform: uppercase;
+	cursor: pointer;	
+	color: var(--color-accent);
+}
+
+
 .navigation__link:hover {
 	color: var(--color-accent);
 }

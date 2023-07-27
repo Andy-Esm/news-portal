@@ -1,5 +1,6 @@
 .single-line-title-article {
 	cursor: pointer;
+	display: block;
 }
 
 .single-line-title-article__image {
